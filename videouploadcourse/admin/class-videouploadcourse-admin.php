@@ -149,7 +149,8 @@ class Videouploadcourse_Admin {
 	}
 
 	public function options_update(){
-		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'))
+		
+		//register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
 	}
 
 	public function validate($input){
