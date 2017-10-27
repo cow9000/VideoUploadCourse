@@ -14,9 +14,13 @@
 
 
 
-public function uploadVideo(){
+function uploadVideo(){
 	if(isset($_POST["videoUploadWeek"])){
-		echo "THIS POST WAS SENT!!!!!";
+		//Works.
+
+		//Video uploaded
+		echo '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
+<p><strong>Video uploaded</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
 	}
 }
 
