@@ -148,10 +148,17 @@ class Videouploadcourse_Admin {
 	    include_once( 'partials/videouploadcourse-admin-display.php' );
 	}
 
+	public function options_update(){
+		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'))
+	}
+
 	public function validate($input){
 		$valid = array();
 
 		/*SANITIZE INPUT FOR VIDEOS*/
+		$valid['videoUploadWeek'] = $input['videoUploadWeek'];
+		$valid['videoUploadVideo'] = $input['videoUploadVideo'];
+		$valid['videoUploadTitle'] = $input['videoUploadTitle'];
 	}
 
 }
