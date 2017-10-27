@@ -148,4 +148,10 @@ class Videouploadcourse_Admin {
 	    include_once( 'partials/videouploadcourse-admin-display.php' );
 	}
 
+	public function validate($input){
+		$valid = array();
+
+		/*SANITIZE INPUT FOR VIDEOS*/
+	}
+
 }
