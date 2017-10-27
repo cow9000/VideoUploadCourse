@@ -3,11 +3,11 @@
 /**
  * Fired during plugin activation
  *
- * @link       http://example.com
+ * @link       https://github.com/cow9000
  * @since      1.0.0
  *
- * @package    video-upload-course
- * @subpackage video-upload-course/includes
+ * @package    Videouploadcourse
+ * @subpackage Videouploadcourse/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    video-upload-course
- * @subpackage video-upload-course/includes
+ * @package    Videouploadcourse
+ * @subpackage Videouploadcourse/includes
  * @author     Derek Vawdrey <flyingpiechicken@gmail.com>
  */
-class Plugin_Name_Activator {
+class Videouploadcourse_Activator {
 
 	/**
 	 * Short Description. (use period)
