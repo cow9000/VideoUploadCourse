@@ -24,8 +24,16 @@ function uploadVideo(){
 
 		//Video uploaded
 		$success = false;
+		
+		$fileName = $_FILES["videoUploadVideo"]["name"];
+		
+		//Get extension
+		$ext = pathinfo($fileName, PATHINFO_EXTENSION);
+		
 		$target_url = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/uploads/';
-		$target_file = $target_url . $_FILES["videoUploadVideo"]["name"];
+		$target_file = $target_url . 'Week' . $_POST[videoUploadWeek] . '.' . $ext;
+		
+		
 		
 		echo "\n URL - " . $target_file;
 		
