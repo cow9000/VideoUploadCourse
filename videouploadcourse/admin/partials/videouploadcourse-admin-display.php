@@ -92,15 +92,88 @@ uploadVideo();
 				<input type="file" accept="video/*" id="<?php echo $this->plugin_name; ?>-videoUploadVideo" name="videoUploadVideo" />
 			</label>
 		</fieldset>
-		<h4>What's the video title?</h4>
-		<fieldset>
-			
-			<legend class="screen-reader-text"><span>Video Title</span></legend>
-			<label for="<?php echo $this->plugin_name; ?>-videoUploadTitle" name="vut">
-				<input type="text" id="<?php echo $this->plugin_name; ?>-videoUploadTitle" name="videoUploadTitle">
-			</label>
 		</fieldset>
 		
-		<?php submit_button('Save Changes/Upload Video', 'primary','submit', TRUE); ?>
+		<?php submit_button('Upload Video', 'primary','submit', TRUE); ?>
+	</form>
+	
+	<form method="post" name="upload_video_course" action="options.php" enctype="multipart/form-data">
+		
+		<?php
+		
+			$options = get_option($this->plugin_name);
+
+			// Cleanup
+			$week_one = $options['week_one'];
+			$week_two = $options['week_two'];
+			$week_three = $options['week_three'];
+			$week_four = $options['week_four'];
+			$week_five = $options['week_five'];
+			$week_six = $options['week_six'];
+			$week_seven = $options['week_seven'];
+			$week_eight = $options['week_eight'];
+			$week_nine = $options['week_nine'];
+			$week_ten = $options['week_ten'];
+			$week_eleven = $options['week_eleven'];
+			$week_twelve = $options['week_twelve'];
+		
+		?>
+		
+		<?php 
+		
+			settings_fields($this->plugin_name); 
+			do_settings_sections($this->plugin_name);
+			
+		?>
+		<h4>Week 1 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_one" value="<?php if(!empty($week_one)) echo $week_one; ?>" name="<?php echo $this->plugin_name; ?>[week_one]">
+		</fieldset>
+		<h4>Week 2 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_two" value="<?php if(!empty($week_two)) echo $week_two; ?>" name="<?php echo $this->plugin_name; ?>[week_two]">
+		</fieldset>
+		<h4>Week 3 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_three" value="<?php if(!empty($week_three)) echo $week_three; ?>" name="<?php echo $this->plugin_name; ?>[week_three]">
+		</fieldset>
+		<h4>Week 4 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_four" value="<?php if(!empty($week_four)) echo $week_four; ?>" name="<?php echo $this->plugin_name; ?>[week_four]">
+		</fieldset>
+		<h4>Week 5 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_five" value="<?php if(!empty($week_five)) echo $week_five; ?>" name="<?php echo $this->plugin_name; ?>[week_five]">
+		</fieldset>
+		<h4>Week 6 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_six" value="<?php if(!empty($week_six)) echo $week_six; ?>" name="<?php echo $this->plugin_name; ?>[week_six]">
+		</fieldset>
+		<h4>Week 7 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_seven" value="<?php if(!empty($week_seven)) echo $week_seven; ?>" name="<?php echo $this->plugin_name; ?>[week_seven]">
+		</fieldset>
+		<h4>Week 8 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_eight" value="<?php if(!empty($week_eight)) echo $week_eight; ?>" name="<?php echo $this->plugin_name; ?>[week_eight]">
+		</fieldset>
+		<h4>Week 9 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_nine" value="<?php if(!empty($week_nine)) echo $week_nine; ?>" name="<?php echo $this->plugin_name; ?>[week_nine]">
+		</fieldset>
+		<h4>Week 10 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_ten" value="<?php if(!empty($week_ten)) echo $week_ten; ?>" name="<?php echo $this->plugin_name; ?>[week_ten]">
+		</fieldset>
+		<h4>Week 11 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_eleven" value="<?php if(!empty($week_eleven)) echo $week_eleven; ?>" name="<?php echo $this->plugin_name; ?>[week_eleven]">
+		</fieldset>
+		<h4>Week 12 - Video Title</h4>
+		<fieldset>
+			<input type="text" id="<?php echo $this->plugin_name; ?>-week_twelve" value="<?php if(!empty($week_twelve)) echo $week_twelve; ?>" name="<?php echo $this->plugin_name; ?>[week_twelve]">
+		</fieldset>
+
+		<?php submit_button('Save all Changes', 'primary','submit', TRUE); ?>
 	</form>
 </div>

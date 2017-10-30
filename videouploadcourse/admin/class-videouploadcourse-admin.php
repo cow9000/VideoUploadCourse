@@ -149,12 +149,26 @@ class Videouploadcourse_Admin {
 	}
 
 	public function options_update(){
-		
-		//register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
+		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
 	}
 
 	public function validate($input){
-		//
+		$valid = array();
+		$valid['week_one'] = sanitize_text_field( $input['week_one'] );
+		$valid['week_two'] = sanitize_text_field( $input['week_two'] );
+		$valid['week_three'] = sanitize_text_field( $input['week_three'] );
+		$valid['week_four'] = sanitize_text_field( $input['week_four'] );
+		$valid['week_five'] = sanitize_text_field( $input['week_five'] );
+		$valid['week_six'] = sanitize_text_field( $input['week_six'] );
+		$valid['week_seven'] = sanitize_text_field( $input['week_seven'] );
+		$valid['week_eight'] = sanitize_text_field( $input['week_eight'] );
+		$valid['week_nine'] = sanitize_text_field( $input['week_nine'] );
+		$valid['week_ten'] = sanitize_text_field( $input['week_ten'] );
+		$valid['week_eleven'] = sanitize_text_field( $input['week_eleven'] );
+		$valid['week_twelve'] = sanitize_text_field( $input['week_twelve'] );
+		
+		return $valid;
+		
 	}
 
 }
