@@ -171,4 +171,109 @@ class Videouploadcourse_Admin {
 		
 	}
 
+		public function add_user_roles(){
+		add_role('allVideos', __(
+			'12WeekVideo'),
+			array(
+			'read' => true, // Allows a user to read
+			'week1' => true, // Allows user to view video
+			'week2' => true,
+			'week3' => true,
+			'week4' => true,
+			'week5' => true,
+			'week6' => true,
+			'week7' => true,
+			'week8' => true,
+			'week9' => true,
+			'week10' => true,
+			'week11' => true,
+			'week12' => true,
+			)
+		);
+		add_role('week1', __(
+			'Week1'),
+			array(
+			'read' => true, // Allows a user to read
+			'week1' => true, // Allows user to view video
+			)
+		);
+		add_role('week2', __(
+			'Week2'),
+			array(
+			'read' => true, // Allows a user to read
+			'week2' => true, // Allows user to view video
+			)
+		);
+		add_role('week3', __(
+			'Week3'),
+			array(
+			'read' => true, // Allows a user to read
+			'week3' => true, // Allows user to view video
+			)
+		);
+		add_role('week4', __(
+			'Week4'),
+			array(
+			'read' => true, // Allows a user to read
+			'week4' => true, // Allows user to view video
+			)
+		);
+		add_role('week5', __(
+			'Week5'),
+			array(
+			'read' => true, // Allows a user to read
+			'week5' => true, // Allows user to view video
+			)
+		);
+		add_role('week6', __(
+			'Week6'),
+			array(
+			'read' => true, // Allows a user to read
+			'week6' => true, // Allows user to view video
+			)
+		);
+		add_role('week7', __(
+			'Week7'),
+			array(
+			'read' => true, // Allows a user to read
+			'week7' => true, // Allows user to view video
+			)
+		);
+		add_role('week8', __(
+			'Week8'),
+			array(
+			'read' => true, // Allows a user to read
+			'week8' => true, // Allows user to view video
+			)
+		);
+		add_role('week9', __(
+			'Week9'),
+			array(
+			'read' => true, // Allows a user to read
+			'week9' => true, // Allows user to view video
+			)
+		);
+		add_role('week10', __(
+			'Week10'),
+			array(
+			'read' => true, // Allows a user to read
+			'week10' => true, // Allows user to view video
+			)
+		);
+		add_role('week11', __(
+			'Week11'),
+			array(
+			'read' => true, // Allows a user to read
+			'week11' => true, // Allows user to view video
+			)
+		);
+		add_role('week12', __(
+			'Week12'),
+			array(
+			'read' => true, // Allows a user to read
+			'week12' => true, // Allows user to view video
+			)
+		);
+	}
+	
 }
