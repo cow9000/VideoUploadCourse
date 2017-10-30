@@ -16,9 +16,9 @@
 function uploadVideo(){
 	if(isset($_POST["videoUploadWeek"])){
 		
-		echo "Week - " . $_POST["videoUploadWeek"];
-		echo "Video name - " . $_FILES["videoUploadVideo"]["name"];
-		echo "Video Title - " . $_POST["videoUploadTitle"];
+		//echo "Week - " . $_POST["videoUploadWeek"];
+		//echo "Video name - " . $_FILES["videoUploadVideo"]["name"];
+		//echo "Video Title - " . $_POST["videoUploadTitle"];
 		
 		//Works.
 
@@ -35,7 +35,7 @@ function uploadVideo(){
 		
 		
 		
-		echo "\n URL - " . $target_file;
+		//echo "\n URL - " . $target_file;
 		
 		if(move_uploaded_file($_FILES['videoUploadVideo']['tmp_name'],$target_file)){
 			$success = true;
@@ -61,7 +61,7 @@ uploadVideo();
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <!--id="<?php echo $this->plugin_name; ?>-videoUploadVideo" name="<?php echo $this->plugin_name; ?>[videoUploadVideo]"-->
 <div class="wrap">
-	<h2><?php echo esc_html(get_admin_page_title());?></h2>
+	<h2><?php echo esc_html(get_admin_page_title());?> - UPLOAD</h2>
 	<form method="post" name="upload_video_course" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
 		<h4>What week is this video for?</h4>
 		<fieldset>
@@ -96,7 +96,7 @@ uploadVideo();
 		
 		<?php submit_button('Upload Video', 'primary','submit', TRUE); ?>
 	</form>
-	
+	<h2><?php echo esc_html(get_admin_page_title());?> - SETTINGS</h2>
 	<form method="post" name="upload_video_course" action="options.php" enctype="multipart/form-data">
 		
 		<?php
