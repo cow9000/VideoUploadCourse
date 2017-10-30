@@ -13,14 +13,36 @@
  */
 
 
-
 function uploadVideo(){
 	if(isset($_POST["videoUploadWeek"])){
+		
+		echo "Week - " . $_POST["videoUploadWeek"];
+		echo "Video name - " . $_FILES["videoUploadVideo"]["name"];
+		echo "Video Title - " . $_POST["videoUploadTitle"];
+		
 		//Works.
 
 		//Video uploaded
-		echo '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
-<p><strong>Video uploaded</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
+		$success = false;
+		$target_url = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/uploads/';
+		$target_file = $target_url . $_FILES["videoUploadVideo"]["name"];
+		
+		echo "\n URL - " . $target_file;
+		
+		if(move_uploaded_file($_FILES['videoUploadVideo']['tmp_name'],$target_file)){
+			$success = true;
+		}
+		
+		
+		if($success){
+			echo '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
+<p><strong>Video uploaded</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';	
+		}else{
+			echo '<div id="setting-error-settings_error" class="error settings-error notice is-dismissible"> 
+<p><strong>There was an error uploading the video</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
+		}
+		
+	
 	}
 }
 
@@ -37,7 +59,7 @@ uploadVideo();
 		<fieldset>
 			
 			<legend class="screen-reader-text"><span>What week is this video for?</span></legend>
-			<label for="<?php echo $this->plugin_name; ?>-videoUploadWeek" name="videoUploadWeek">
+			<label for="<?php echo $this->plugin_name; ?>-videoUploadWeek" name="vuw">
 				<select id="<?php echo $this->plugin_name; ?>-videoUploadWeek" name="videoUploadWeek">
 					<option value="1">Week 1</option>
 					<option value="2">Week 2</option>
@@ -58,7 +80,7 @@ uploadVideo();
 		<fieldset>
 			
 			<legend class="screen-reader-text"><span>Upload Video</span></legend>
-			<label for="<?php echo $this->plugin_name; ?>-videoUploadVideo" name="videoUploadVideo">
+			<label for="<?php echo $this->plugin_name; ?>-videoUploadVideo" name="vuv">
 				<input type="file" accept="video/*" id="<?php echo $this->plugin_name; ?>-videoUploadVideo" name="videoUploadVideo" />
 			</label>
 		</fieldset>
@@ -66,10 +88,11 @@ uploadVideo();
 		<fieldset>
 			
 			<legend class="screen-reader-text"><span>Video Title</span></legend>
-			<label for="<?php echo $this->plugin_name; ?>-videoUploadTitle" name="videoUploadTitle">
+			<label for="<?php echo $this->plugin_name; ?>-videoUploadTitle" name="vut">
 				<input type="text" id="<?php echo $this->plugin_name; ?>-videoUploadTitle" name="videoUploadTitle">
 			</label>
 		</fieldset>
+		
 		<?php submit_button('Save Changes/Upload Video', 'primary','submit', TRUE); ?>
 	</form>
 </div>

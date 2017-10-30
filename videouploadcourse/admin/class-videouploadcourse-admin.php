@@ -154,12 +154,7 @@ class Videouploadcourse_Admin {
 	}
 
 	public function validate($input){
-		$valid = array();
-
-		/*SANITIZE INPUT FOR VIDEOS*/
-		$valid['videoUploadWeek'] = $input['videoUploadWeek'];
-		$valid['videoUploadVideo'] = $input['videoUploadVideo'];
-		$valid['videoUploadTitle'] = $input['videoUploadTitle'];
+		//
 	}
 
 }
