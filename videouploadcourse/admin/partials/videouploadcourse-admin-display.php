@@ -60,9 +60,11 @@ uploadVideo();
 <!--https://scotch.io/tutorials/how-to-build-a-wordpress-plugin-part-1-->
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <!--id="<?php echo $this->plugin_name; ?>-videoUploadVideo" name="<?php echo $this->plugin_name; ?>[videoUploadVideo]"-->
+
 <div class="wrap">
 	<h2><?php echo esc_html(get_admin_page_title());?> - UPLOAD</h2>
-	<form method="post" name="upload_video_course" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
+
+	<form method="post" name="upload_video_course" id="upload_video_course" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
 		<h4>What week is this video for?</h4>
 		<fieldset>
 			
