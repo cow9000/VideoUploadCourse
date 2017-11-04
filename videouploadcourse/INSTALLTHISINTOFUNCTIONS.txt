@@ -1,10 +1,12 @@
+
 /* add new tab called "videos" */
 
 	function loadVideo($video){
-		$target_url = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/uploads/';
+		$target_url = 'https://baseballutility.com/wp-content/uploads/';
 		$target_file = $target_url . 'Week' . $video . '.mp4';
 		
-		$options = get_option($this->plugin_name);
+		
+		$options = get_option("videouploadcourse");
 
 		// Cleanup
 		$week_one = $options['week_one'];
@@ -48,10 +50,10 @@
 		}
 		
 		
-		if(file_exists($target_url)){
+		//if(file_exists($target_url)){
 			echo "Week " . $video . " - " . $title;
 			echo do_shortcode( "[video src='" . $target_file . "' width='640']" );
-		}
+		//}
 	}
 
 add_filter('um_account_page_default_tabs_hook', 'video_tab_in_um', 100 );
