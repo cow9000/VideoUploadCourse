@@ -14,7 +14,7 @@
 
 
 function uploadVideo(){
-	if(isset($_POST["videoUploadWeek"])){
+	if(isset($_POST["upload_video_course"])){
 		
 		//echo "Week - " . $_POST["videoUploadWeek"];
 		//echo "Video name - " . $_FILES["videoUploadVideo"]["name"];
@@ -51,6 +51,97 @@ function uploadVideo(){
 		}
 		
 	
+	}else if(isset($_POST["user_add"])){
+		
+		
+		if( get_user_by("login",$_POST["user_login"])){
+			$theUser = get_user_by("login", $_POST["user_login"] );
+			$role = "week1";
+			
+			if($_POST["user_role"] == "all"){
+				$role = "allVideos";
+			}else if($_POST["user_role"] == "1"){
+				$role = "week1";
+			}else if($_POST["user_role"] == "2"){
+				$role = "week2";
+			}else if($_POST["user_role"] == "3"){
+				$role = "week3";
+			}else if($_POST["user_role"] == "4"){
+				$role = "week4";
+			}else if($_POST["user_role"] == "5"){
+				$role = "week5";
+			}else if($_POST["user_role"] == "6"){
+				$role = "week6";
+			}else if($_POST["user_role"] == "7"){
+				$role = "week7";
+			}else if($_POST["user_role"] == "8"){
+				$role = "week8";
+			}else if($_POST["user_role"] == "9"){
+				$role = "week9";
+			}else if($_POST["user_role"] == "10"){
+				$role = "week10";
+			}else if($_POST["user_role"] == "11"){
+				$role = "week11";
+			}else if($_POST["user_role"] == "12"){
+				$role = "week12";
+			}
+			
+			$theUser->add_role( $role );
+			
+			echo '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
+<p><strong>User role added</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';	
+			
+		}else{
+			echo '<div id="setting-error-settings_error" class="error settings-error notice is-dismissible"> 
+<p><strong>Unidentified User</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
+		
+		}
+		
+		
+	}else if(isset($_POST["user_remove"])){
+
+		if( get_user_by("login",$_POST["user_login"])){
+			
+			echo '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
+<p><strong>User role removed</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';	
+			
+			$theUser = get_user_by("login",$_POST["user_login"]);
+			
+			$role = "week1";
+			
+			if($_POST["user_role"] == "all"){
+				$role = "allVideos";
+			}else if($_POST["user_role"] == "1"){
+				$role = "week1";
+			}else if($_POST["user_role"] == "2"){
+				$role = "week2";
+			}else if($_POST["user_role"] == "3"){
+				$role = "week3";
+			}else if($_POST["user_role"] == "4"){
+				$role = "week4";
+			}else if($_POST["user_role"] == "5"){
+				$role = "week5";
+			}else if($_POST["user_role"] == "6"){
+				$role = "week6";
+			}else if($_POST["user_role"] == "7"){
+				$role = "week7";
+			}else if($_POST["user_role"] == "8"){
+				$role = "week8";
+			}else if($_POST["user_role"] == "9"){
+				$role = "week9";
+			}else if($_POST["user_role"] == "10"){
+				$role = "week10";
+			}else if($_POST["user_role"] == "11"){
+				$role = "week11";
+			}else if($_POST["user_role"] == "12"){
+				$role = "week12";
+			}
+			
+			$theUser->remove_role( $role );
+		}else{
+			echo '<div id="setting-error-settings_error" class="error settings-error notice is-dismissible"> 
+<p><strong>Unidentified User</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
+		}
 	}
 }
 
@@ -67,7 +158,7 @@ uploadVideo();
 	<form method="post" name="upload_video_course" id="upload_video_course" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
 		<h4>What week is this video for?</h4>
 		<fieldset>
-			
+			<input type="hidden" name="upload_video_course" value=""/>
 			<legend class="screen-reader-text"><span>What week is this video for?</span></legend>
 			<label for="<?php echo $this->plugin_name; ?>-videoUploadWeek" name="vuw">
 				<select id="<?php echo $this->plugin_name; ?>-videoUploadWeek" name="videoUploadWeek">
@@ -175,7 +266,41 @@ uploadVideo();
 		<fieldset>
 			<input type="text" id="<?php echo $this->plugin_name; ?>-week_twelve" value="<?php if(!empty($week_twelve)) echo $week_twelve; ?>" name="<?php echo $this->plugin_name; ?>[week_twelve]">
 		</fieldset>
-
+		
 		<?php submit_button('Save all Changes', 'primary','submit', TRUE); ?>
 	</form>
+	<h2><?php echo esc_html(get_admin_page_title());?> - USER VIDEO SETTINGS</h2>
+	<form method="post" name="upload_video_course" id="upload_video_course" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
+	
+		<fieldset>
+			<select name="user_login">
+				<?php
+					$users = get_users( array( 'fields' => array( 'user_login' ) ) );
+					// Array of stdClass objects.
+					foreach ( $users as $user ) {
+						
+						echo "<option value='" . $user->user_login . "'>" . esc_html( $user->user_login ) . "</option>";
+					}
+					
+					
+				?>
+			</select>
+			
+			<select name="user_role">
+				<option value="all">Give user all videos</option>
+				<?php
+				for($i = 0; $i < 12; $i++){
+					echo "<option value='" . ($i+1) . "'>Week " . ($i+1) . " video</option>";
+				}
+				?>
+			</select>
+			
+			<?php submit_button('Add Role to user', 'primary','user_add', TRUE); ?>
+			<?php submit_button('Remove Role from user', 'primary','user_remove', TRUE); ?>
+			
+		</fieldset>
+	
+	</form>
+	
+	
 </div>

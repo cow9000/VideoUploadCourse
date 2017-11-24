@@ -1,0 +1,33 @@
+.minimal-form-input{
+	padding-top:0px !important;
+}
+
+@media only screen and (max-width: 990px) {
+.hide-on-mobile { display: none !important; }}
+@media only screen and (min-width: 990px) {
+.hide-on-desktop { display: none !important; }}
+
+#footer-widgets{
+	display:none !important;
+}
+
+.overrideColor a{
+	color:rgb(255,255,255) !important;
+}
+
+#header-outer .row .col.span_9 {
+    margin-left: 70px !important;
+	color:black !important;
+}
+
+.ascend #header-outer .sf-menu ul li a{
+	color:white !important;
+}
+
+#top nav ul li a{
+	color:black !important;
+}
+
+.smallLink a{
+	font-size:12px !important;
+}
